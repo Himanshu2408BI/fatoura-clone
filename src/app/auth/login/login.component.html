@@ -1,0 +1,52 @@
+<div class="content-page">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col" id="left">
+                    <div class="col-lg-3">
+                        <a routerLink="/">
+                            <img src="assets/images/Fatoura-Logo-Dark.png" width="200" class="logo">
+                        </a>
+                    </div>  
+                    <div class="col-lg-9">
+                        <div class="Gilroy-Bold text-2xl mb-3">Sign In</div>
+                        <form [formGroup]="loginforms">
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <input formControlName="email" class="form-control" type="email" name="email" placeholder="Enter email" reqiured>
+                                </div>
+                                <div class="text-danger errors mx-2" *ngIf="formErrors.email">{{formErrors.email}}  </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <input class="form-control" formControlName="password" [type]="fieldTextType ? 'text': 'password'" Stype="password" name="password" placeholder="Enter password" reqiured>
+                                    <div class="input-group-append">
+                                        
+                                            <i class="fa"
+                                                [ngClass]="{'fa-eye-slash': !fieldTextType, 'fa-eye':fieldTextType}"
+                                                (click)="toggleFieldTextType()"></i>
+                                    </div>
+                                </div>
+                                <div style="margin-top:10px" class="text-danger errors mx-2" *ngIf="formErrors.password">{{formErrors.password}}</div>
+                            </div>
+                            <a class="forgetpassword" routerLink="/auth/forgetpassword">Forget your Password?</a>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <button class="form-control" type="submit" (click)="login()" name="login">Let me in</button>
+                                </div>
+                            </div>
+                        </form>
+                        <p>Sign in With Social Media</p>
+                        <span class="googleLogin">
+                            <img src="assets/images/google.svg" alt="google" width="20" class="mx-2">Sign with Google
+                        </span>
+                        <p class="signupLink">Let me in?<a routerLink="/auth/signup">Sign up</a></p>
+                    </div>                  
+                </div>
+                <div class="col" id="right">
+                    <img src="assets/images/section3.3.svg" alt="google">                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
